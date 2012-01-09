@@ -2531,7 +2531,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
  *
  * Version 0.1
  * Written by Omer Ziv
- * Based on word by OKhayat
+ * Based on work by OKhayat
  * 
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* --- lib/forms.less ------------------------------------- */
@@ -2627,19 +2627,22 @@ form .input {
 .topbar form {
   float: right;
 }
-.nav {
+.topbar div > ul, .nav {
   float: right;
   margin: 0 0 0 10px;
 }
-.nav > li {
+.topbar div > ul > li, .nav > li {
   float: right;
 }
-.nav.secondary-nav {
+.topbar div > ul.secondary-nav, .nav.secondary-nav {
   float: left;
   margin-right: 10px;
   margin-left: 0;
 }
-.nav.secondary-nav .menu-dropdown, .nav.secondary-nav .dropdown-menu {
+.topbar div > ul.secondary-nav .menu-dropdown,
+.nav.secondary-nav .menu-dropdown,
+.topbar div > ul.secondary-nav .dropdown-menu,
+.nav.secondary-nav .dropdown-menu {
   left: 0;
 }
 a.menu:after, .dropdown-toggle:after {
