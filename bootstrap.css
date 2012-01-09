@@ -1,12 +1,12 @@
 /*!
- * Bootstrap v1.4.0
+ * Bootstrap @VERSION
  *
  * Copyright 2011 Twitter, Inc
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
- * Date: Sun Dec 25 20:18:31 PST 2011
+ * Date: @DATE
  */
 /* Reset.less
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
@@ -187,6 +187,7 @@ body {
   font-size: 13px;
   font-weight: normal;
   line-height: 18px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #404040;
 }
 .container {
@@ -265,6 +266,9 @@ a:hover {
   display: inline;
   float: left;
   margin-left: 20px;
+  float: right;
+  margin-left: auto;
+  margin-right: 20px;
 }
 .span1 {
   width: 40px;
@@ -607,6 +611,7 @@ textarea {
   font-size: 13px;
   font-weight: normal;
   line-height: normal;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 label {
   padding-top: 6px;
@@ -817,96 +822,128 @@ input.span1, textarea.span1 {
   float: none;
   width: 30px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span2, textarea.span2 {
   display: inline-block;
   float: none;
   width: 90px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span3, textarea.span3 {
   display: inline-block;
   float: none;
   width: 150px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span4, textarea.span4 {
   display: inline-block;
   float: none;
   width: 210px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span5, textarea.span5 {
   display: inline-block;
   float: none;
   width: 270px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span6, textarea.span6 {
   display: inline-block;
   float: none;
   width: 330px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span7, textarea.span7 {
   display: inline-block;
   float: none;
   width: 390px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span8, textarea.span8 {
   display: inline-block;
   float: none;
   width: 450px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span9, textarea.span9 {
   display: inline-block;
   float: none;
   width: 510px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span10, textarea.span10 {
   display: inline-block;
   float: none;
   width: 570px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span11, textarea.span11 {
   display: inline-block;
   float: none;
   width: 630px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span12, textarea.span12 {
   display: inline-block;
   float: none;
   width: 690px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span13, textarea.span13 {
   display: inline-block;
   float: none;
   width: 750px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span14, textarea.span14 {
   display: inline-block;
   float: none;
   width: 810px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span15, textarea.span15 {
   display: inline-block;
   float: none;
   width: 870px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input.span16, textarea.span16 {
   display: inline-block;
   float: none;
   width: 930px;
   margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
 input[disabled],
 select[disabled],
@@ -1359,6 +1396,7 @@ table .headerSortUp.purple, table .headerSortDown.purple {
   font-size: normal;
   font-weight: 13px;
   line-height: 1;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   padding: 4px 9px;
   color: #ffffff;
   color: rgba(255, 255, 255, 0.75);
@@ -2274,6 +2312,10 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid #000000;
+  left: auto;
+  right: 50%;
+  margin-left: auto;
+  margin-right: -5px;
 }
 .twipsy.left .twipsy-arrow {
   top: 50%;
@@ -2290,6 +2332,11 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-bottom: 5px solid #000000;
+  top: 0;
+  left: auto;
+  right: 50%;
+  margin-left: auto;
+  margin-right: -5px;
 }
 .twipsy.right .twipsy-arrow {
   top: 50%;
@@ -2330,6 +2377,10 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid #000000;
+  left: auto;
+  right: 50%;
+  margin-left: auto;
+  margin-right: -5px;
 }
 .popover.right .arrow {
   top: 50%;
@@ -2346,6 +2397,11 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-bottom: 5px solid #000000;
+  top: 0;
+  left: auto;
+  right: 50%;
+  margin-left: auto;
+  margin-right: -5px;
 }
 .popover.left .arrow {
   top: 50%;
@@ -2467,4 +2523,246 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+/* RTL.less
+ * 
+ * This external .less file converts default Bootstrap properties so they would work with RTL languages.
+ * The file is based on Bootstrap V. 1.4.0 and refers to it's various .less files in comments
+ *
+ * Version 0.1
+ * Written by Omer Ziv
+ * Based on word by OKhayat
+ * 
+ * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* --- lib/forms.less ------------------------------------- */
+fieldset legend {
+  *padding: 0 145px 5px 0;
+  /* IE6-7 */
+
+}
+label {
+  float: right;
+  text-align: left;
+}
+form .input {
+  margin-left: auto;
+  margin-right: 150px;
+}
+.actions {
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+}
+.help-inline {
+  padding-left: 0;
+  padding-right: 5px;
+}
+.inline-inputs span {
+  padding: 0 1px 0 2px;
+}
+.input-prepend .add-on, .input-append .add-on {
+  float: right;
+  padding: 4px 5px 4px 4px;
+  margin-right: auto;
+  margin-left: -1px;
+}
+.input-append input {
+  float: right;
+}
+.input-append .add-on {
+  margin-left: 0;
+  margin-right: -1px;
+}
+.inputs-list label {
+  margin-left: auto;
+  margin-right: 20px;
+  text-align: right;
+}
+.inputs-list .inputs-list {
+  margin-left: auto;
+  margin-right: 25px;
+}
+.inputs-list input[type=radio], .inputs-list input[type=checkbox] {
+  margin-left: auto;
+  margin-right: -20px;
+  float: right;
+}
+.form-stacked {
+  padding-left: 0;
+  padding-right: 20px;
+}
+.form-stacked legend {
+  padding-left: 0;
+  padding-right: 0;
+}
+.form-stacked label {
+  text-align: right;
+}
+.form-stacked .clearfix div.input {
+  margin-left: auto;
+  margin-right: 0;
+}
+.form-stacked div.clearfix.error {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-right: 10px;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: -10px;
+}
+.form-stacked .actions {
+  margin-left: auto;
+  margin-right: -20px;
+  padding-left: 0;
+  padding-right: 20px;
+}
+/* --- lib/mixins.less ------------------------------------- */
+/* --- lib/patterns.less ------------------------------------- */
+.topbar h3 a, .topbar .brand {
+  float: right;
+  margin-left: auto;
+  margin-right: -20px;
+}
+.topbar form {
+  float: right;
+}
+.nav {
+  float: right;
+  margin: 0 0 0 10px;
+}
+.nav > li {
+  float: right;
+}
+.nav.secondary-nav {
+  float: left;
+  margin-right: 10px;
+  margin-left: 0;
+}
+.nav.secondary-nav .menu-dropdown, .nav.secondary-nav .dropdown-menu {
+  left: 0;
+}
+a.menu:after, .dropdown-toggle:after {
+  margin-left: auto;
+  margin-right: 4px;
+}
+.dropdown-menu {
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+.tabs > li, .pills > li {
+  float: right;
+}
+.tabs > li > a {
+  margin-right: auto;
+  margin-left: 2px;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+.tabs .menu-dropdown, .tabs .dropdown-menu {
+  -webkit-border-radius: 6px 6px 6px 0;
+  -moz-border-radius: 6px 6px 6px 0;
+  border-radius: 6px 6px 6px 0;
+}
+.tabs a.menu:after, .tabs .dropdown-toggle:after {
+  margin-left: auto;
+  margin-right: 5px;
+}
+.pills a {
+  margin: 5px 0 5px 3px;
+}
+.close {
+  float: left;
+}
+.alert-message.block-message ul, .alert-message.block-message p {
+  margin-right: auto;
+  margin-left: 30px;
+}
+.pagination ul {
+  float: right;
+}
+.pagination a {
+  float: right;
+  border-right: 0;
+  border-left: 1px solid;
+  border-left-color: #ddd;
+  border-left-color: rgba(0, 0, 0, 0.15);
+  *border-left-color: #ddd;
+  /* IE6-7 */
+
+}
+.modal {
+  left: auto;
+  right: 50%;
+  margin: -250px -280px 0 0;
+}
+.modal-footer {
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+.modal-footer .btn {
+  float: left;
+  margin-left: auto;
+  margin-right: 5px;
+}
+.popover {
+  left: auto;
+  right: 0;
+}
+.media-grid {
+  margin-left: auto;
+  margin-right: -20px;
+}
+.media-grid a {
+  float: right;
+  margin: 0 20px 18px 0;
+}
+/* --- lib/reset.less ------------------------------------- */
+html, body {
+  direction: rtl;
+}
+/* --- lib/scaffolding.less ------------------------------------- */
+.container-fluid > .sidebar {
+  left: auto;
+  right: 20px;
+}
+.container-fluid > .content {
+  margin-left: auto;
+  margin-right: 240px;
+}
+.row {
+  margin-left: auto;
+  margin-right: -20px;
+}
+/* --- lib/tables.less ------------------------------------- */
+table th, table td {
+  text-align: right;
+}
+.bordered-table th + th, .bordered-table td + td, .bordered-table th + td {
+  border-left: 0;
+  border-right: 1px solid #ddd;
+}
+table .header:after {
+  float: left;
+}
+/* --- lib/type.less ------------------------------------- */
+ul.unstyled {
+  margin-left: auto;
+  margin-right: 0;
+}
+dl dd {
+  margin-left: auto;
+  margin-right: 9px;
+}
+blockquote {
+  border-left: 0;
+  border-right: 5px solid #eee;
+  padding-left: 0;
+  padding-right: 15px;
+}
+code, pre {
+  font-family: Courier New, monospace;
 }
