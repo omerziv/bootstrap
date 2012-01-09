@@ -2627,6 +2627,9 @@ form .input {
 .topbar form {
   float: right;
 }
+.topbar form.pull-left {
+  float: left;
+}
 .topbar div > ul, .nav {
   float: right;
   margin: 0 0 0 10px;
