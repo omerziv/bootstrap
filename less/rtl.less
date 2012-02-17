@@ -4,373 +4,608 @@
  * The file is based on Bootstrap V. 1.4.0 and refers to it's various .less files in comments
  *
  * Version 0.1
- * Written by Omer Ziv
+ * Written by Omer Ziv (@omerziv) & Mushon Zer-Aviv (@mushon)
+ * Making use of @l0uy's http://l0uy.com/rtler/
  * Based on work by OKhayat
  * 
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
+/* --- alerts.less ------------------------------------- */
 
-/* --- lib/forms.less ------------------------------------- */
+// ALERT STYLES
+// ------------
 
-fieldset {
-  legend {
-    *padding: 0 145px 5px 0; /* IE6-7 */
-  }
+// Base alert styles
+.alert {
+  padding: 8px 14px 8px 35px;
 }
 
-label {
+// Adjust close link position
+.alert .close {
+  left: -21px;
+  left: auto;
+}
+
+/* --- button-groups.less ------------------------------------- */
+
+// BUTTON GROUPS
+// -------------
+
+
+// Make the div behave like a button
+.btn-group {
+  // clears the floated buttons
+  .ie7-restore-right-whitespace();
+}
+
+// Space out series of button groups
+.btn-group + .btn-group {
+  margin-right: 5px;
+  margin-left: auto;
+}
+
+// Float them, remove border radius, then re-add to first and last elements
+.btn-group .btn {
   float: right;
-  text-align: left;
+  margin-right: -1px;
+  margin-left: auto;
 }
 
-form .input {
-  margin-left: auto;
-  margin-right: 150px;
-}
-
-.formColumns(@columnSpan: 1) {
-  margin-left: auto;
+// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+.btn-group .btn:first-child {
   margin-right: 0;
-}
-
-.actions {
-  .border-radius(3px 3px 0 0);
-}
-
-.help-inline {
-  padding-left: 0;
-  padding-right: 5px;
-}
-
-.inline-inputs {
-  span {
-    padding: 0 1px 0 2px;
-  }
-}
-
-.input-prepend,
-.input-append {
-  .add-on {
-    float: right;
-    padding: 4px 5px 4px 4px;
-    margin-right: auto;
-    margin-left: -1px;
-  }
-}
-
-.input-append {
-  input {
-    float: right;
-  }
-  .add-on {
-    margin-left: 0;
-    margin-right: -1px;
-  }
-}
-
-.inputs-list {
-  label {
-    margin-left: auto;
-    margin-right: 20px;
-    text-align: right;
-  }
-  .inputs-list {
-  	margin-left: auto;
-    margin-right: 25px;
-  }
-  input[type=radio],
-  input[type=checkbox] {
-    margin-left: auto;
-    margin-right: -20px;
-    float: right;
-  }
-}
-
-.form-stacked {
-  padding-left: 0;
-  padding-right: 20px;
-  legend {
-  	padding-left: 0;
-    padding-right: 0;
-  }
-  label {
-    text-align: right;
-  }
-  .clearfix {
-    div.input {
-      margin-left: auto;
-      margin-right: 0;
-    }
-  }
-  div.clearfix.error {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 0;
-    padding-right: 10px;
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: -10px;
-  }
-  .actions {
-  	margin-left: auto;
-    margin-right: -20px;
-    padding-left: 0;
-    padding-right: 20px;
-  }
-}
-
-
-/* --- lib/mixins.less ------------------------------------- */
-
-#font {
-  .sans-serif(@weight: normal, @size: 14px, @lineHeight: 20px) {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  }
-  .serif(@weight: normal, @size: 14px, @lineHeight: 20px) {
-    font-family: Times New Roman, Times, serif;
-  }
-  .monospace(@weight: normal, @size: 12px, @lineHeight: 20px) {
-    font-family: Courier New, monospace;
-  }
-}
-
-.gridColumn() {
-  float: right;
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  border-bottom-right-radius: 4px;
   margin-left: auto;
-  margin-right: @gridGutterWidth;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-bottomleft: 0;
 }
 
+.btn-group .btn:last-child,
+.btn-group .dropdown-toggle {
+  -webkit-border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  border-top-left-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+}
 
-/* --- lib/patterns.less ------------------------------------- */
+// Reset corners for large buttons
+.btn-group .btn.large:first-child {
+  margin-right: 0;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  border-top-right-radius: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: auto;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-bottomleft: 0;
+}
 
-.topbar {
-  h3 a,
-  .brand {
-    float: right;
-    margin-left: auto;
-    margin-right: -20px; // negative indent to left-align the text down the page
-  }
+.btn-group .btn.large:last-child,
+.btn-group .large.dropdown-toggle {
+  -webkit-border-top-left-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  border-top-left-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-bottom-left-radius: 6px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+}
 
-  // Search Form
-  form {
-    float: right;
-  }
+// Split button dropdowns
+// ----------------------
+
+// Give the line between buttons some depth
+.btn-group .dropdown-toggle {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+// Reposition the caret
+.btn .caret {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* --- buttons.less ------------------------------------- */
+
+// BUTTON STYLES
+// -------------
+
+
+// Base styles
+// --------------------------------------------------
+
+// Core
+.btn {
+  .ie7-restore-right-whitespace();
+}
+
+/* --- carousel.less ------------------------------------- */
+.active {
+  right: 0;
+  right: auto;
+}
+
+.next {
+  right: 100%;
+  right: auto;
+}
+
+.prev {
+  right: -100%;
+  right: auto;
+}
+
+.next.right,
+  .prev.left {
+  right: 0;
+  right: auto;
+}
+
+.active.right {
+  right: -100%;
+  right: auto;
+}
+
+.active.left {
+  right: 100%;
+  right: auto;
+}
+
+// Left/right controls for nav
+// ---------------------------
+
+.carousel-control {
+  right: 15px;
   
-  form.pull-left {
-    float: left;
+  // Reposition the left one
+  &.left {
+    right: auto;
+    left: 15px;
   }
 }
 
-.topbar div > ul,
-.nav {
-  float: right;
-  margin: 0 0 0 10px;
-  > li {
-    float: right;
-  }
+// Caption for text below images
+// -----------------------------
 
-  &.secondary-nav {
-    float: left;
-    margin-right: 10px;
-    margin-left: 0;
-    .menu-dropdown,
-    .dropdown-menu {
-      left: 0;
-    }
-  }
+.carousel-caption {
+  right: 0;
+  left: 0;
 }
 
-a.menu:after,
-.dropdown-toggle:after {
-  margin-left: auto;
-  margin-right: 4px;
-}
 
-.dropdown-menu {
-  .border-radius(6px 6px 0 0);
-}
+/* --- close.less ------------------------------------- */
 
-.tabs,
-.pills {
-  > li {
-    float: right;
-  }
-}
-
-.tabs {
-  > li {
-    > a {
-      margin-right: auto;
-      margin-left: 2px;
-      .border-radius(4px 4px 0 0);
-    }
-  }
-}
-
-.tabs {
-  .menu-dropdown,
-  .dropdown-menu {
-    .border-radius(6px 6px 6px 0);
-  }
-  a.menu:after,
-  .dropdown-toggle:after {
-    margin-left: auto;
-    margin-right: 5px;
-  }
-}
-
-.pills {
-  a {
-    margin: 5px 0 5px 3px;
-  }
-}
+// CLOSE ICONS
+// -----------
 
 .close {
   float: left;
 }
 
-.alert-message {
-  &.block-message {
-    ul, p {
-      margin-right: auto;
-      margin-left: 30px;
-    }
-  }
+
+/* --- dropdowns.less ------------------------------------- */
+
+// Dropdown arrow/caret
+.caret {
+  border-right:  4px solid transparent;
+  border-left: 4px solid transparent;
 }
 
-.pagination {
-  ul {
-    float: right;
-  }
-  a {
-    float: right;
-  	border-right: 0;
-  	border-left: 1px solid;
-    border-left-color: #ddd;
-    border-left-color: rgba(0,0,0,.15);
-    *border-left-color: #ddd; /* IE6-7 */
-  }
+.dropdown .caret {
+  margin-right: 2px;
+  margin-left: auto;
 }
 
-.modal {
+// The dropdown menu (ul)
+.dropdown-menu {
+  right: 0;
+  float: right;
+  *border-left-width: 2px;
+  right: auto;
+}
+
+// Dividers (basically an hr) within the dropdown
+  .divider {
+  // IE7 needs a set width since we gave a height. Restricting just
+    // to IE7 to keep the 1px right/left space in other browsers.
+    // It is unclear where IE is getting the extra space that we need
+    // to negative-margin away, but so it goes.
+    *width: 100%;
+}
+
+
+/* --- forms.less ------------------------------------- */
+
+// CHECKBOXES & RADIOS
+// -------------------
+
+// Indent the labels to position radios/checkboxes as hanging
+.radio,
+.checkbox {
+  padding-right: 18px;
+  padding-left: 0;
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  float: right;
+  margin-right: -18px;
+  margin-left: auto;
+}
+
+.radio.inline + .radio.inline,
+.checkbox.inline + .checkbox.inline {
+  margin-right: 10px;
+  margin-left: auto;
+}
+
+// Grid style input sizes
+input[class*="span"],
+select[class*="span"],
+textarea[class*="span"],
+.uneditable-input {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.help-inline {
+  padding-right: 5px;
+  padding-left: 0;
+}
+
+.uneditable-input {
+  border-right-color: #ccc;
+}
+
+.add-on {
+  float: right;
+  margin-left: -1px;
+  margin-right: auto;
+}
+
+.uneditable-input {
+  border-right-color: #eee;
+  border-left-color: #ccc;
+}
+
+.add-on {
+  margin-left: 0;
+  margin-right: -1px;
+}
+
+input:first-child {
+  // In IE7, having a hasLayout container (from clearfix's zoom:1) can make the first input
+    // inherit the sum of its ancestors' margins.
+    *margin-right: -160px;
+}
+
+// SEARCH FORM
+// -----------
+
+.search-query {
+  padding-right: 14px;
+  padding-left: 14px;
+}
+
+// Float the labels right
+  .control-label {
+  float: right;
+  text-align: left;
+}
+
+// Move over all input controls and content
+  .controls {
+  margin-right: 160px;
+  margin-left: auto;
+}
+
+// Move over buttons in .form-actions to align with .controls
+  .form-actions {
+  padding-right: 160px;
+  padding-left: 0;
+}
+
+
+/* --- mixins.less ------------------------------------- */
+// Center-align a block level element
+// ----------------------------------
+.center-block() {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// IE7 likes to collapse whitespace on either side of the inline-block elements.
+// Ems because we're attempting to match the width of a space character. Left
+// version is for form buttons, which typically come after other elements, and
+// left version is for icons, which come before. Applying both is ok, but it will
+// mean that space between those elements will be .6em (~2 space characters) in IE7,
+// instead of the 1 space in other browsers.
+.ie7-restore-right-whitespace() {
+  *margin-right: .3em;
+}
+
+.ie7-restore-left-whitespace() {
+  *margin-left: .3em;
+}
+
+// GRID SYSTEM
+// --------------------------------------------------
+
+// Site container
+// -------------------------
+.container-fixed() {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.offset(@gridColumnWidth, @gridGutterWidth, @columns) {
+  margin-right: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1)) + (@gridGutterWidth * 2);
+  margin-left: auto;
+}
+
+.gridColumn(@gridGutterWidth) {
+  float: right;
+  margin-right: @gridGutterWidth;
+  margin-left: auto;
+}
+
+.gridColumn(@fluidGridGutterWidth) {
+  float: right;
+  margin-right: @fluidGridGutterWidth;
+  margin-left: auto;
+}
+
+> [class*="span"]:first-child {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+// Make a Grid
+// -------------------------
+// Use .makeRow and .makeColumn to assign semantic layouts grid system behavior
+.makeRow() {
+  margin-right: @gridGutterWidth * -1;
+  margin-left: auto;
+}
+
+.makeColumn(@columns: 1) {
+  float: right;
+  margin-right: @gridGutterWidth;
+  margin-left: auto;
+}
+
+.right(@arrowWidth: 5px) {
+  left: 0;
+  border-right: @arrowWidth solid @black;
   left: auto;
+  border-left: none;
+}
+
+.bottom(@arrowWidth: 5px) {
+  right: 50%;
+  margin-right: -@arrowWidth;
+  border-right: @arrowWidth solid transparent;
+  border-left: @arrowWidth solid transparent;
+  right: auto;
+  margin-left: auto;
+}
+
+.left(@arrowWidth: 5px) {
+  right: 0;
+  border-left: @arrowWidth solid @black;
+  right: auto;
+  border-right: none;
+}
+
+
+/* --- modals.less ------------------------------------- */
+
+// Base modal
+.modal {
   right: 50%;
   margin: -250px -280px 0 0;
+  right: auto;
 }
 
-.modal-footer {
-  .border-radius(6px 6px 0 0);
-  .btn {
-    float: left;
-    margin-left: auto;
-    margin-right: 5px;
-  }
+
+
+/* --- navbar.less ------------------------------------- */
+
+/* requires investigation */
+
+/* --- navs.less ------------------------------------- */
+
+// NAVIGATIONS
+// -----------
+
+
+
+// BASE CLASS
+// ----------
+
+.nav {
+  margin-right: 0;
+  margin-left: auto;
 }
 
-#popoverArrow {
-  .above(@arrowWidth: 5px) {
-    left: auto;
-    right: 50%;
-    margin-left: auto;
-    margin-right: -@arrowWidth;
-  }
-  .below(@arrowWidth: 5px) {
-    top: 0;
-    left: auto;
-    right: 50%;
-    margin-left: auto;
-    margin-right: -@arrowWidth;
-  }
+// NAV LIST
+// --------
+
+.nav-list {
+  padding-right: 14px;
+  padding-left: 14px;
 }
+
+.nav-list > li > a,
+.nav-list .nav-header {
+  margin-right:  -15px;
+  margin-left: -15px;
+}
+
+.nav-list [class^="icon-"] {
+  margin-left: 2px;
+  margin-right: auto;
+}
+
+.nav-tabs > li,
+.nav-pills > li {
+  float: right;
+}
+
+.nav-tabs > li > a,
+.nav-pills > li > a {
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: 2px;
+  margin-right: auto;
+}
+
+.nav-stacked > li > a {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.tabs-right .nav-tabs > li > a,
+.tabs-left .nav-tabs > li > a {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+// Tabs on the right
+.tabs-right .nav-tabs {
+  float: right;
+  margin-left: 19px;
+  border-left: 1px solid #ddd;
+  margin-right: auto;
+  border-right: none;
+}
+
+.tabs-right .nav-tabs > li > a {
+  margin-left: -1px;
+  margin-right: auto;
+}
+
+.tabs-right .nav-tabs .active > a,
+.tabs-right .nav-tabs .active > a:hover {
+  *border-left-color: @white;
+}
+
+// Tabs on the left
+.tabs-left .nav-tabs {
+  float: left;
+  margin-right: 19px;
+  border-right: 1px solid #ddd;
+  margin-left: auto;
+  border-left: none;
+}
+
+.tabs-left .nav-tabs > li > a {
+  margin-right: -1px;
+  margin-left: auto;
+}
+
+.tabs-left .nav-tabs .active > a,
+.tabs-left .nav-tabs .active > a:hover {
+  *border-right-color: @white;
+}
+
+
+/* --- pager.less ------------------------------------- */
+
+// PAGER
+// -----
+
+.pager {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.pager .next a {
+  float: left;
+}
+
+.pager .previous a {
+  float: right;
+}
+
+/* --- pagination.less ------------------------------------- */
+
+.pagination ul {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.pagination a {
+  float: right;
+  border-right-width: 0;
+}
+
+.pagination li:first-child a {
+  border-right-width: 1px;
+}
+
+.pagination-left {
+  text-align: left;
+}
+
+/* --- popovers.less ------------------------------------- */
+
+// POPOVERS
+// --------
 
 .popover {
-  left: auto;
   right: 0;
+  right: auto;
 }
 
-.media-grid {
+&.left {
+  margin-right:  5px;
   margin-left: auto;
-  margin-right: -@gridGutterWidth;
-  a {
-    float: right;
-    margin: 0 @gridGutterWidth @baseline 0;
-  }
 }
 
+&.right {
+  margin-right: -5px;
+  margin-left: auto;
+}
 
-/* --- lib/reset.less ------------------------------------- */
+&.left .arrow {
+  #popoverArrow > .left();
+}
+
+&.right .arrow {
+  #popoverArrow > .right();
+}
+
+/* --- reset.less ------------------------------------- */
 
 html, body { 
 	direction:rtl;
 }
 
 
-/* --- lib/scaffolding.less ------------------------------------- */
+/* --- responsive.less ------------------------------------- */
 
-.container-fluid {
-	> .sidebar {
-		left: auto;
-		right: 20px;
-	}
-	> .content {
-		margin-left: auto;
-		margin-right: 240px;
-	}
-}
+// Requires Investigation
 
-.row {
-	margin-left: auto;
-	margin-right: -@gridGutterWidth;
-}
-
-
-/* --- lib/tables.less ------------------------------------- */
-
-table {
-	th, td {
-		text-align: right;
-	}
-}
-
-.bordered-table {
-	th + th,
-	td + td,
-	th + td {
-		border-left: 0;
-		border-right: 1px solid #ddd;
-	}
-}
-
-table {
-	.header {
-		&:after {
-			float: left;
-		}
-	}
-}
-
-
-/* --- lib/type.less ------------------------------------- */
-
-ul.unstyled {
-	margin-left: auto;
-	margin-right: 0;
-}
-
-dl {
-	dd {
-		margin-left: auto;
-		margin-right: @baseline / 2;
-	}
-}
-
-blockquote {
-	border-left: 0;
-	border-right: 5px solid #eee;
-	padding-left: 0;
-	padding-right: 15px;
-}
-
-code, pre {
-	font-family: Courier New, monospace;
-}
+/* --- pagination.less ------------------------------------- */
