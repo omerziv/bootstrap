@@ -134,6 +134,9 @@ a:hover {
 [class*="span"] {
   float: left;
   margin-left: 20px;
+  float: right;
+  margin-right: 20px;
+  margin-left: auto;
 }
 .span1 {
   width: 60px;
@@ -173,36 +176,70 @@ a:hover {
 }
 .offset1 {
   margin-left: 100px;
+  margin-right: 100px;
+  margin-left: auto;
 }
 .offset2 {
   margin-left: 180px;
+  margin-right: 180px;
+  margin-left: auto;
 }
 .offset3 {
   margin-left: 260px;
+  margin-right: 260px;
+  margin-left: auto;
 }
 .offset4 {
   margin-left: 340px;
+  margin-right: 340px;
+  margin-left: auto;
 }
 .offset5 {
   margin-left: 420px;
+  margin-right: 420px;
+  margin-left: auto;
 }
 .offset6 {
   margin-left: 500px;
+  margin-right: 500px;
+  margin-left: auto;
 }
 .offset7 {
   margin-left: 580px;
+  margin-right: 580px;
+  margin-left: auto;
 }
 .offset8 {
   margin-left: 660px;
+  margin-right: 660px;
+  margin-left: auto;
 }
 .offset9 {
   margin-left: 740px;
+  margin-right: 740px;
+  margin-left: auto;
 }
 .offset10 {
   margin-left: 820px;
+  margin-right: 820px;
+  margin-left: auto;
 }
 .offset11 {
   margin-left: 900px;
+  margin-right: 900px;
+  margin-left: auto;
+}
+.row {
+  margin-right: -20px;
+  margin-left: auto;
+  *zoom: 1;
+}
+.row:before, .row:after {
+  display: table;
+  content: "";
+}
+.row:after {
+  clear: both;
 }
 .row-fluid {
   width: 100%;
@@ -218,6 +255,9 @@ a:hover {
 .row-fluid > [class*="span"] {
   float: left;
   margin-left: 2.127659574%;
+  float: right;
+  margin-right: 2.127659574%;
+  margin-left: auto;
 }
 .row-fluid > [class*="span"]:first-child {
   margin-left: 0;
@@ -257,6 +297,10 @@ a:hover {
 }
 .row-fluid > .span12 {
   width: 99.99999998999999%;
+}
+.row-fluid > [class*="span"]:first-child {
+  margin-right: 0;
+  margin-left: auto;
 }
 .container {
   width: 940px;
@@ -1177,7 +1221,6 @@ table .span12 {
   background-position: 14px 14px;
   background-repeat: no-repeat;
   *margin-right: .3em;
-  *margin-right: .3em;
 }
 [class^="icon-"]:last-child, [class*=" icon-"]:last-child {
   *margin-left: 0;
@@ -1742,7 +1785,6 @@ table .span12 {
   cursor: pointer;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   *margin-left: .3em;
-  *margin-left: .3em;
 }
 .btn:hover,
 .btn:active,
@@ -2002,7 +2044,6 @@ button.btn.small, input[type="submit"].btn.small {
 .btn-group {
   position: relative;
   *zoom: 1;
-  *margin-left: .3em;
   *margin-left: .3em;
 }
 .btn-group:before, .btn-group:after {
@@ -3495,6 +3536,7 @@ a.thumbnail:hover {
  * Based on work by OKhayat
  * 
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* --- accordion.less ------------------------------------- */
 /* --- alerts.less ------------------------------------- */
 .alert {
   padding: 8px 14px 8px 35px;
@@ -3503,9 +3545,9 @@ a.thumbnail:hover {
   left: -21px;
   left: auto;
 }
+/* --- breadcrumbs.less ------------------------------------- */
 /* --- button-groups.less ------------------------------------- */
 .btn-group {
-  *margin-right: .3em;
   *margin-right: .3em;
 }
 .btn-group:last-child {
@@ -3583,35 +3625,33 @@ a.thumbnail:hover {
 /* --- buttons.less ------------------------------------- */
 .btn {
   *margin-right: .3em;
-  *margin-right: .3em;
 }
 .btn:last-child {
   *margin-left: 0;
 }
 /* --- carousel.less ------------------------------------- */
-.active {
+.carousel .item {
+  -webkit-transition: 0.6s ease-in-out right;
+  -moz-transition: 0.6s ease-in-out right;
+  -ms-transition: 0.6s ease-in-out right;
+  -o-transition: 0.6s ease-in-out right;
+  transition: 0.6s ease-in-out right;
+}
+.carousel .active {
   right: 0;
-  right: auto;
+  left: auto;
 }
-.next {
+.carousel .next {
   right: 100%;
-  right: auto;
+  left: auto;
 }
-.prev {
+.carousel .prev {
   right: -100%;
-  right: auto;
+  left: auto;
 }
-.next.right, .prev.left {
+.carousel .next.right, .carousel .prev.left {
   right: 0;
-  right: auto;
-}
-.active.right {
-  right: -100%;
-  right: auto;
-}
-.active.left {
-  right: 100%;
-  right: auto;
+  left: auto;
 }
 .carousel-control {
   right: 15px;
@@ -3620,19 +3660,13 @@ a.thumbnail:hover {
   right: auto;
   left: 15px;
 }
-.carousel-caption {
-  right: 0;
-  left: 0;
-}
 /* --- close.less ------------------------------------- */
 .close {
   float: left;
 }
+/* --- code.less ------------------------------------- */
+/* --- component-animation.less ------------------------------------- */
 /* --- dropdowns.less ------------------------------------- */
-.caret {
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-}
 .dropdown .caret {
   margin-right: 2px;
   margin-left: auto;
@@ -3641,10 +3675,8 @@ a.thumbnail:hover {
   right: 0;
   float: right;
   *border-left-width: 2px;
+  *border-right-width: auto;
   right: auto;
-}
-.divider {
-  *width: 100%;
 }
 /* --- forms.less ------------------------------------- */
 .radio, .checkbox {
@@ -3671,51 +3703,63 @@ textarea[class*="span"],
   padding-right: 5px;
   padding-left: 0;
 }
-.uneditable-input {
+.input-prepend .uneditable-input, .input-append .uneditable-input {
   border-right-color: #ccc;
 }
-.add-on {
+.input-prepend .add-on, .input-append .add-on {
   float: right;
   margin-left: -1px;
   margin-right: auto;
 }
-.uneditable-input {
+.input-append input, .input-append .uneditable-input {
+  float: right;
+}
+.input-append .uneditable-input {
   border-right-color: #eee;
   border-left-color: #ccc;
 }
-.add-on {
+.input-append .add-on {
   margin-left: 0;
   margin-right: -1px;
 }
-input:first-child {
+.input-append input:first-child {
   *margin-right: -160px;
+  *margin-left: auto;
 }
-.search-query {
-  padding-right: 14px;
-  padding-left: 14px;
+.input-append input:first-child + .add-on {
+  *margin-right: -21px;
+  *margin-left: auto;
 }
-.control-label {
+.form-horizontal .control-label {
   float: right;
   text-align: left;
 }
-.controls {
+.form-horizontal .controls {
+  margin-left: auto;
   margin-right: 160px;
-  margin-left: auto;
 }
-.form-actions {
+.form-horizontal .form-actions {
   padding-right: 160px;
-  padding-left: 0;
+  padding-left: auto;
 }
+/* --- labels.less ------------------------------------- */
+/* --- layouts.less ------------------------------------- */
 /* --- mixins.less ------------------------------------- */
-> [class*="span"]:first-child {
-  margin-right: 0;
-  margin-left: auto;
-}
 /* --- modals.less ------------------------------------- */
 .modal {
   right: 50%;
   margin: -250px -280px 0 0;
   right: auto;
+}
+.modal-footer {
+  -webkit-border-radius: 0 6px 6px 0;
+  -moz-border-radius: 0 6px 6px 0;
+  border-radius: 0 6px 6px 0;
+}
+.modal-footer .btn {
+  float: left;
+  margin-right: 5px;
+  margin-left: auto;
 }
 /* --- navbar.less ------------------------------------- */
 /* --- navs.less ------------------------------------- */
@@ -3748,38 +3792,6 @@ input:first-child {
   margin-left: 0;
   margin-right: auto;
 }
-.tabs-right .nav-tabs > li > a, .tabs-left .nav-tabs > li > a {
-  margin-left: 0;
-  margin-right: auto;
-}
-.tabs-right .nav-tabs {
-  float: right;
-  margin-left: 19px;
-  border-left: 1px solid #ddd;
-  margin-right: auto;
-  border-right: none;
-}
-.tabs-right .nav-tabs > li > a {
-  margin-left: -1px;
-  margin-right: auto;
-}
-.tabs-right .nav-tabs .active > a, .tabs-right .nav-tabs .active > a:hover {
-  *border-left-color: #ffffff;
-}
-.tabs-left .nav-tabs {
-  float: left;
-  margin-right: 19px;
-  border-right: 1px solid #ddd;
-  margin-left: auto;
-  border-left: none;
-}
-.tabs-left .nav-tabs > li > a {
-  margin-right: -1px;
-  margin-left: auto;
-}
-.tabs-left .nav-tabs .active > a, .tabs-left .nav-tabs .active > a:hover {
-  *border-right-color: #ffffff;
-}
 /* --- pager.less ------------------------------------- */
 .pager {
   margin-right: 0;
@@ -3807,12 +3819,60 @@ input:first-child {
   text-align: left;
 }
 /* --- popovers.less ------------------------------------- */
+/* --- progress-bars.less ------------------------------------- */
 /* --- reset.less ------------------------------------- */
 html, body {
   direction: rtl;
 }
 /* --- responsive.less ------------------------------------- */
-/* --- pagination.less ------------------------------------- */.pull-right {
+/* --- scaffolding.less ------------------------------------- */
+/* --- sprites.less ------------------------------------- */
+/* --- tables.less ------------------------------------- */
+/* --- thumbnails.less ------------------------------------- */
+.thumbnails {
+  margin-right: -20px;
+  margin-left: auto;
+}
+.thumbnails > li {
+  float: right;
+}
+.thumbnail > img {
+  margin-right: auto;
+  margin-left: auto;
+}
+/* --- tooltip.less ------------------------------------- */
+/* --- type.less ------------------------------------- */
+ul, ol {
+  margin: 0 25px 9px 0;
+}
+ul.unstyled, ol.unstyled {
+  margin-left: auto;
+  margin-right: 0;
+}
+dd {
+  margin-left: auto;
+  margin-right: 9px;
+}
+blockquote {
+  padding: 0 15px 0 0;
+  margin: 0 0 18px;
+  border-right: 5px solid #eeeeee;
+  border-left: auto;
+}
+blockquote.pull-left {
+  float: left;
+  padding-right: 0;
+  padding-left: 15px;
+  border-right: 0;
+  border-left: 5px solid #eeeeee;
+}
+blockquote.pull-left p, blockquote.pull-left small {
+  text-align: left;
+}
+/* --- utilities.less ------------------------------------- */
+/* --- variables.less ------------------------------------- */
+/* --- wells.less ------------------------------------- */
+.pull-right {
   float: right;
 }
 .pull-left {

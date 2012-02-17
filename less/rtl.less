@@ -10,6 +10,13 @@
  * 
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
+
+/* --- accordion.less ------------------------------------- */
+
+// UNCHANGED
+// --------
+
+
 /* --- alerts.less ------------------------------------- */
 
 // ALERT STYLES
@@ -25,6 +32,13 @@
   left: -21px;
   left: auto;
 }
+
+
+/* --- breadcrumbs.less ------------------------------------- */
+
+// UNCHANGED
+// --------
+
 
 /* --- button-groups.less ------------------------------------- */
 
@@ -141,35 +155,31 @@
 }
 
 /* --- carousel.less ------------------------------------- */
-.active {
-  right: 0;
-  right: auto;
-}
 
-.next {
-  right: 100%;
-  right: auto;
-}
+.carousel {
 
-.prev {
-  right: -100%;
-  right: auto;
-}
+  .item {
+    .transition(.6s ease-in-out right);
+  }
 
-.next.right,
+  .active {
+    right: 0;
+    left: auto;
+  }
+
+  .next {
+    right: 100%;
+    left: auto;
+  }
+  .prev {
+    right: -100%;
+    left: auto;
+  }
+  .next.right,
   .prev.left {
-  right: 0;
-  right: auto;
-}
-
-.active.right {
-  right: -100%;
-  right: auto;
-}
-
-.active.left {
-  right: 100%;
-  right: auto;
+    right: 0; 
+    left: auto;
+  }
 }
 
 // Left/right controls for nav
@@ -185,15 +195,6 @@
   }
 }
 
-// Caption for text below images
-// -----------------------------
-
-.carousel-caption {
-  right: 0;
-  left: 0;
-}
-
-
 /* --- close.less ------------------------------------- */
 
 // CLOSE ICONS
@@ -204,13 +205,19 @@
 }
 
 
-/* --- dropdowns.less ------------------------------------- */
+/* --- code.less ------------------------------------- */
 
-// Dropdown arrow/caret
-.caret {
-  border-right:  4px solid transparent;
-  border-left: 4px solid transparent;
-}
+// UNCHANGED
+// --------
+
+
+/* --- component-animation.less ------------------------------------- */
+
+// UNCHANGED
+// --------
+
+
+/* --- dropdowns.less ------------------------------------- */
 
 .dropdown .caret {
   margin-right: 2px;
@@ -222,16 +229,8 @@
   right: 0;
   float: right;
   *border-left-width: 2px;
+  *border-right-width: auto;
   right: auto;
-}
-
-// Dividers (basically an hr) within the dropdown
-  .divider {
-  // IE7 needs a set width since we gave a height. Restricting just
-    // to IE7 to keep the 1px right/left space in other browsers.
-    // It is unclear where IE is getting the extra space that we need
-    // to negative-margin away, but so it goes.
-    *width: 100%;
 }
 
 
@@ -274,80 +273,80 @@ textarea[class*="span"],
   padding-left: 0;
 }
 
-.uneditable-input {
-  border-right-color: #ccc;
+.input-prepend,
+.input-append {
+  .uneditable-input {
+    border-right-color: #ccc;
+  }
+  .add-on {
+    float: right;
+    margin-left: -1px;
+    margin-right: auto;
+  }
 }
 
-.add-on {
-  float: right;
-  margin-left: -1px;
-  margin-right: auto;
-}
-
-.uneditable-input {
-  border-right-color: #eee;
-  border-left-color: #ccc;
-}
-
-.add-on {
-  margin-left: 0;
-  margin-right: -1px;
-}
-
-input:first-child {
-  // In IE7, having a hasLayout container (from clearfix's zoom:1) can make the first input
+.input-append {
+  input,
+  .uneditable-input {
+    float: right;
+  }
+  .uneditable-input {
+    border-right-color: #eee;
+    border-left-color: #ccc;    
+  }
+  .add-on {
+    margin-left: 0;
+    margin-right: -1px;
+  }
+  input:first-child {
+    // In IE7, having a hasLayout container (from clearfix's zoom:1) can make the first input
     // inherit the sum of its ancestors' margins.
     *margin-right: -160px;
+    *margin-left: auto;
+
+    &+.add-on {
+      *margin-right: -21px;
+      *margin-left: auto;
+    }
+  }
 }
+
 
 // SEARCH FORM
 // -----------
 
-.search-query {
-  padding-right: 14px;
-  padding-left: 14px;
-}
-
-// Float the labels right
+.form-horizontal {
+  // Float the labels left
   .control-label {
-  float: right;
-  text-align: left;
-}
-
-// Move over all input controls and content
+    float: right;
+    text-align: left;
+  }
+  // Move over all input controls and content
   .controls {
-  margin-right: 160px;
-  margin-left: auto;
+    margin-left: auto;
+    margin-right: 160px;
+  }
+  // Move over buttons in .form-actions to align with .controls
+  .form-actions {
+    padding-right: 160px;
+    padding-left: auto;
+  }
 }
 
-// Move over buttons in .form-actions to align with .controls
-  .form-actions {
-  padding-right: 160px;
-  padding-left: 0;
-}
+
+/* --- labels.less ------------------------------------- */
+
+// UNCHANGED
+// --------
+
+
+/* --- layouts.less ------------------------------------- */
+
+// UNCHANGED
+// --------
 
 
 /* --- mixins.less ------------------------------------- */
-// Center-align a block level element
-// ----------------------------------
-.center-block() {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-// IE7 likes to collapse whitespace on either side of the inline-block elements.
-// Ems because we're attempting to match the width of a space character. Left
-// version is for form buttons, which typically come after other elements, and
-// left version is for icons, which come before. Applying both is ok, but it will
-// mean that space between those elements will be .6em (~2 space characters) in IE7,
-// instead of the 1 space in other browsers.
-.ie7-restore-right-whitespace() {
-  *margin-right: .3em;
-}
-
-.ie7-restore-left-whitespace() {
-  *margin-left: .3em;
-}
 
 // GRID SYSTEM
 // --------------------------------------------------
@@ -359,26 +358,47 @@ input:first-child {
   margin-left: auto;
 }
 
-.offset(@gridColumnWidth, @gridGutterWidth, @columns) {
-  margin-right: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1)) + (@gridGutterWidth * 2);
-  margin-left: auto;
+// Le grid system
+// -------------------------
+#gridSystem {
+  // Setup the mixins to be used
+  .offset(@gridColumnWidth, @gridGutterWidth, @columns) {
+    margin-right: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1)) + (@gridGutterWidth * 2);
+    margin-left: auto;
+  }
+  .gridColumn(@gridGutterWidth) {
+    float: right;
+    margin-right: @gridGutterWidth;
+    margin-left: auto;
+  }
+  // Take these values and mixins, and make 'em do their thang
+  .generate(@gridColumns, @gridColumnWidth, @gridGutterWidth) {
+    // Row surrounds the columns
+    .row {
+      margin-right: @gridGutterWidth * -1;
+      margin-left: auto;
+      .clearfix();
+    }
+  }
 }
 
-.gridColumn(@gridGutterWidth) {
-  float: right;
-  margin-right: @gridGutterWidth;
-  margin-left: auto;
-}
-
-.gridColumn(@fluidGridGutterWidth) {
-  float: right;
-  margin-right: @fluidGridGutterWidth;
-  margin-left: auto;
-}
-
-> [class*="span"]:first-child {
-  margin-right: 0;
-  margin-left: auto;
+// Fluid grid system
+// -------------------------
+#fluidGridSystem {
+  .gridColumn(@fluidGridGutterWidth) {
+    float: right;
+    margin-right: @fluidGridGutterWidth;
+    margin-left: auto;
+  }
+  // Take these values and mixins, and make 'em do their thang
+  .generate(@gridColumns, @fluidGridColumnWidth, @fluidGridGutterWidth) {
+    .row-fluid {
+      > [class*="span"]:first-child {
+        margin-right: 0;
+        margin-left: auto;
+      }
+    }
+  }
 }
 
 // Make a Grid
@@ -395,29 +415,6 @@ input:first-child {
   margin-left: auto;
 }
 
-.right(@arrowWidth: 5px) {
-  left: 0;
-  border-right: @arrowWidth solid @black;
-  left: auto;
-  border-left: none;
-}
-
-.bottom(@arrowWidth: 5px) {
-  right: 50%;
-  margin-right: -@arrowWidth;
-  border-right: @arrowWidth solid transparent;
-  border-left: @arrowWidth solid transparent;
-  right: auto;
-  margin-left: auto;
-}
-
-.left(@arrowWidth: 5px) {
-  right: 0;
-  border-left: @arrowWidth solid @black;
-  right: auto;
-  border-right: none;
-}
-
 
 /* --- modals.less ------------------------------------- */
 
@@ -428,11 +425,21 @@ input:first-child {
   right: auto;
 }
 
+// Footer (for actions)
+.modal-footer {
+  .border-radius(0 6px 6px 0);
+  .btn {
+    float: left;
+    margin-right: 5px;
+    margin-left: auto;
+  }
+}
 
 /* --- navbar.less ------------------------------------- */
 
-// REQUIRES FURTHER INVESTIGATE
-// ----------------------------
+// REQUIRES MANUAL INVESTIGATE
+// ---------------------------- XXX XXX XXX XXX XXX XXX XXX XXX
+
 
 /* --- navs.less ------------------------------------- */
 
@@ -486,50 +493,6 @@ input:first-child {
   margin-right: auto;
 }
 
-.tabs-right .nav-tabs > li > a,
-.tabs-left .nav-tabs > li > a {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-// Tabs on the right
-.tabs-right .nav-tabs {
-  float: right;
-  margin-left: 19px;
-  border-left: 1px solid #ddd;
-  margin-right: auto;
-  border-right: none;
-}
-
-.tabs-right .nav-tabs > li > a {
-  margin-left: -1px;
-  margin-right: auto;
-}
-
-.tabs-right .nav-tabs .active > a,
-.tabs-right .nav-tabs .active > a:hover {
-  *border-left-color: @white;
-}
-
-// Tabs on the left
-.tabs-left .nav-tabs {
-  float: left;
-  margin-right: 19px;
-  border-right: 1px solid #ddd;
-  margin-left: auto;
-  border-left: none;
-}
-
-.tabs-left .nav-tabs > li > a {
-  margin-right: -1px;
-  margin-left: auto;
-}
-
-.tabs-left .nav-tabs .active > a,
-.tabs-left .nav-tabs .active > a:hover {
-  *border-right-color: @white;
-}
-
 
 /* --- pager.less ------------------------------------- */
 
@@ -571,8 +534,15 @@ input:first-child {
 
 /* --- popovers.less ------------------------------------- */
 
-// IGNORED
+// UNCHANGED
 // --------
+
+
+/* --- progress-bars.less ------------------------------------- */
+
+// UNCHANGED
+// ---------
+
 
 /* --- reset.less ------------------------------------- */
 
@@ -583,7 +553,109 @@ html, body {
 
 /* --- responsive.less ------------------------------------- */
 
-// REQUIRES FURTHER INVESTIGATE
-// ----------------------------
+// REQUIRES MANUAL INVESTIGATE
+// ---------------------------- XXX XXX XXX XXX XXX XXX XXX XXX
 
-/* --- pagination.less ------------------------------------- */
+
+/* --- scaffolding.less ------------------------------------- */
+
+// UNCHANGED
+// ---------
+
+
+/* --- sprites.less ------------------------------------- */
+
+// UNCHANGED
+// ---------
+
+
+/* --- tables.less ------------------------------------- */
+
+// REQUIRES MANUAL INVESTIGATE
+// ---------------------------- XXX XXX XXX XXX XXX XXX XXX XXX
+
+/* --- thumbnails.less ------------------------------------- */
+
+// THUMBNAILS
+// ----------
+
+.thumbnails {
+  margin-right: -@gridGutterWidth;
+  margin-left: auto;
+}
+
+.thumbnails > li {
+  float: right;
+}
+
+// Images and captions
+.thumbnail > img {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* --- tooltip.less ------------------------------------- */
+
+// UNCHANGED
+// ---------
+
+
+/* --- type.less ------------------------------------- */
+
+// LISTS
+// -----
+
+// Unordered and Ordered lists
+ul, ol {
+  margin: 0 25px @baseLineHeight / 2 0;
+}
+ul.unstyled,
+ol.unstyled {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+// Description Lists
+dd {
+  margin-left: auto;
+  margin-right: @baseLineHeight / 2;
+}
+
+// Blockquotes
+blockquote {
+  padding: 0 15px 0 0;
+  margin: 0 0 @baseLineHeight;
+  border-right: 5px solid @grayLighter;
+  border-left: auto;
+
+  // Float right with text-align: right
+  &.pull-left {
+    float: left;
+    padding-right: 0;
+    padding-left: 15px;
+    border-right: 0;
+    border-left: 5px solid @grayLighter;
+    p,
+    small {
+      text-align: left;
+    }
+  }
+}
+
+/* --- utilities.less ------------------------------------- */
+
+// UNCHANGED
+// ---------
+
+
+/* --- variables.less ------------------------------------- */
+
+// UNCHANGED
+// ---------
+
+
+/* --- wells.less ------------------------------------- */
+
+// UNCHANGED
+// ---------
